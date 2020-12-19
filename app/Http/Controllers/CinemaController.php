@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cenima;
+use App\Models\Cinema;
 use Illuminate\Http\Request;
 
 class CenimaController extends Controller
@@ -14,7 +14,7 @@ class CenimaController extends Controller
      */
     public function index()
     {
-        return response()->json(Cenima::all());
+        return response()->json(Cinema::all());
     }
 
     /**
@@ -40,34 +40,34 @@ class CenimaController extends Controller
            'name' => 'required|string'
         ]);
         if ($validated) {
-            $newCenima = Cenima::create($request->all());
+            $newCenima = Cinema::create($request->all());
             return response()->json($newCenima);
         }
-        return response()->json(['error' => 'Cenima cannot be created'],404);
+        return response()->json(['error' => 'Cinema cannot be created'],404);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cenima  $cenima
+     * @param  \App\Models\Cinema  $cenima
      * @return \Illuminate\Http\Response
      */
-    public function show(Cenima $cenimaId)
+    public function show(Cinema $cenimaId)
     {
         if ($cenimaId) {
-            $existingCenima = Cenima::find($cenimaId);
+            $existingCenima = Cinema::find($cenimaId);
             return response()->json($existingCenima);
         }
-        return response()->json(['error' => 'Cenima not found!',404]);
+        return response()->json(['error' => 'Cinema not found!',404]);
     }
 
     /*
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Cenima  $cenima
+     * @param  \App\Models\Cinema  $cenima
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cenima $cenimaId)
+    public function edit(Cinema $cenimaId)
     {
         //
     }
@@ -76,13 +76,13 @@ class CenimaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cenima  $cenimaId
+     * @param  \App\Models\Cinema  $cenimaId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cenima $cenimaId)
+    public function update(Request $request, Cinema $cenimaId)
     {
         //
-        $existingCenima = Cenima::find($cenimaId) ;
+        $existingCenima = Cinema::find($cenimaId) ;
         $validated = $request->validate([
             'area_id' => 'required',
             'name' => 'required|string'
@@ -91,17 +91,17 @@ class CenimaController extends Controller
             $existingCenima->update($request->all());
             return response()->json($existingCenima);
         }
-        return response()->json(['error' => "Cenima cannot be updated",404]);
+        return response()->json(['error' => "Cinema cannot be updated",404]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cenima  $cenimaId
+     * @param  \App\Models\Cinema  $cenimaId
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cenima $cenimaId)
+    public function destroy(Cinema $cenimaId)
     {
-        Cenima::destroy($cenimaId);
+        Cinema::destroy($cenimaId);
     }
 }

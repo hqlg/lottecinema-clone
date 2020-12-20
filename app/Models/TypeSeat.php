@@ -9,4 +9,9 @@ class TypeSeat extends Model
 {
     use HasFactory;
     protected $fillable = ['price','name'];
+
+    public function seats()
+    {
+        return $this->hasMany(Seat::class);
+    }
 }

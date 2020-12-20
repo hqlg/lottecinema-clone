@@ -11,4 +11,9 @@ class Customer extends Model
 
     protected $fillable = ['name','email','address','phone'];
     protected $hidden = ['password'];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

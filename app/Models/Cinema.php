@@ -9,4 +9,14 @@ class Cinema extends Model
 {
     use HasFactory;
     protected $fillable = ['area_id','name'];
+
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+
+    public function movies()
+    {
+        return $this->hasMany(Movie::class);
+    }
 }

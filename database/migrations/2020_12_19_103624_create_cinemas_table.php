@@ -17,6 +17,7 @@ class CreateCinemasTable extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('area_id')->constrained();
+            $table->foreignId('movie_id')->constrained();
             $table->timestamps();
         });
     }

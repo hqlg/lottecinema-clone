@@ -18,6 +18,7 @@ class CreateMoviesTable extends Migration
             $table->string('name');
             $table->string('img_url');
             $table->time('release_date');
+            $table->foreignId('cinema_id')->constrained();
             $table->double('price');
             $table->timestamps();
         });

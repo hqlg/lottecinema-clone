@@ -23,7 +23,8 @@ class MovieFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'cinema_id' => $this->faker->uuid,
+            'cinema_id' => $this->faker->randomNumber(5),
+            'price' => $this->faker->randomFloat,
             'img_url' => $this->faker->word,
             'release_date' => $this->faker->dateTime,
         ];

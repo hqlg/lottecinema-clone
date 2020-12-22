@@ -22,8 +22,9 @@ class SeatFactory extends Factory
     public function definition()
     {
         return [
-            'seat_position_id' => $this->faker->uuid,
-            'type_seat_id' => $this->faker->uuid,
+            'seat_position_id' => $this->faker->randomNumber(5),
+            'type_seat_id' => $this->faker->randomNumber(5),
+            'movie_sticket_id' => $this->faker->randomNumber(5),
         ];
     }
 }

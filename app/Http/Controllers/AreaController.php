@@ -51,7 +51,7 @@ class AreaController extends Controller
      * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(Area $areaId)
+    public function show($areaId)
     {
         if ($areaId) {
         return response()->json(Area::find($areaId), 200);
@@ -65,7 +65,7 @@ class AreaController extends Controller
      * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(Area $area)
+    public function edit($area)
     {
         //
     }
@@ -77,7 +77,7 @@ class AreaController extends Controller
      * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Area $areaId)
+    public function update(Request $request,$areaId)
     {
         $existingArea = Area::findOrFail($areaId);
         $validate = $request->validate([
@@ -96,7 +96,7 @@ class AreaController extends Controller
      * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Area $areaId)
+    public function destroy($areaId)
     {
             Area::destroy($areaId);
     }

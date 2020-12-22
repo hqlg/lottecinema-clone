@@ -52,7 +52,7 @@ class SeatController extends Controller
      * @param  \App\Models\Seat  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(Seat $seatId)
+    public function show( $seatId)
     {
         if ($seatId) {
         return response()->json(Seat::find($seatId), 200);
@@ -66,7 +66,7 @@ class SeatController extends Controller
      * @param  \App\Models\Seat  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(Seat $area)
+    public function edit($area)
     {
         //
     }
@@ -78,7 +78,7 @@ class SeatController extends Controller
      * @param  \App\Models\Seat  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Seat $seatId)
+    public function update(Request $request,$seatId)
     {
         $existingSeat = Seat::findOrFail($seatId);
         $validated = $request->validate([
@@ -98,7 +98,7 @@ class SeatController extends Controller
      * @param  \App\Models\Seat  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Seat $seatId)
+    public function destroy($seatId)
     {
         Seat::destroy($seatId);
     }

@@ -53,7 +53,7 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $orderId)
+    public function show($orderId)
     {
         if ($orderId) {
         return response()->json(Order::find($orderId), 200);
@@ -67,7 +67,7 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $area)
+    public function edit($area)
     {
         //
     }
@@ -79,7 +79,7 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $orderId)
+    public function update(Request $request,$orderId)
     {
         $existingOrder = Order::findOrFail($orderId);
         $validated = $request->validate([
@@ -100,7 +100,7 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $orderId)
+    public function destroy($orderId)
     {
         Order::destroy($orderId);
     }   //

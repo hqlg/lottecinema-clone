@@ -52,7 +52,7 @@ class OrderDetailController extends Controller
      * @param  \App\Models\OrderDetail  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(OrderDetail $orderDetailId)
+    public function show( $orderDetailId)
     {
         if ($orderDetailId) {
         return response()->json(OrderDetail::find($orderDetailId), 200);
@@ -66,7 +66,7 @@ class OrderDetailController extends Controller
      * @param  \App\Models\OrderDetail  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(OrderDetail $area)
+    public function edit( $area)
     {
         //
     }
@@ -78,7 +78,7 @@ class OrderDetailController extends Controller
      * @param  \App\Models\OrderDetail  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OrderDetail $orderDetailId)
+    public function update(Request $request,$orderDetailId)
     {
         $existingOrderDetail = OrderDetail::findOrFail($orderDetailId);
         $validated = $request->validate([
@@ -98,7 +98,7 @@ class OrderDetailController extends Controller
      * @param  \App\Models\OrderDetail  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OrderDetail $orderDetailId)
+    public function destroy($orderDetailId)
     {
         OrderDetail::destroy($orderDetailId);
     }

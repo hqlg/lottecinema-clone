@@ -52,7 +52,7 @@ class MovieSticketController extends Controller
      * @param  \App\Models\MovieSticket  $cenima
      * @return \Illuminate\Http\Response
      */
-    public function show(MovieSticket $movieSticketId)
+    public function show($movieSticketId)
     {
         if ($movieSticketId) {
             $existingMovieSticket = MovieSticket::find($movieSticketId);
@@ -67,7 +67,7 @@ class MovieSticketController extends Controller
      * @param  \App\Models\MovieSticket  $cenima
      * @return \Illuminate\Http\Response
      */
-    public function edit(MovieSticket $movieSticketId)
+    public function edit($movieSticketId)
     {
         //
     }
@@ -79,7 +79,7 @@ class MovieSticketController extends Controller
      * @param  \App\Models\MovieSticket  movie$movieSticketId$
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MovieSticket $movieSticketId)
+    public function update(Request $request,$movieSticketId)
     {
         //
         $existingMovieSticket = MovieSticket::find($movieSticketId) ;
@@ -100,7 +100,7 @@ class MovieSticketController extends Controller
      * @param  \App\Models\MovieSticket  movie$movieSticketId$
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MovieSticket $movieSticketId)
+    public function destroy($movieSticketId)
     {
         MovieSticket::destroy($movieSticketId);
     }

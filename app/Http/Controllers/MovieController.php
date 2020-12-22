@@ -53,7 +53,7 @@ class MovieController extends Controller
      * @param  \App\Models\Movie  $cenima
      * @return \Illuminate\Http\Response
      */
-    public function show(Movie $cenimaId)
+    public function show($cenimaId)
     {
         if ($cenimaId) {
             $existingCenima = Movie::find($cenimaId);
@@ -80,7 +80,7 @@ class MovieController extends Controller
      * @param  \App\Models\Movie  $cenimaId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movie $cenimaId)
+    public function update(Request $request,$cenimaId)
     {
         //
         $existingCenima = Movie::find($cenimaId) ;
@@ -97,7 +97,7 @@ class MovieController extends Controller
      * @param  \App\Models\Movie  $cenimaId
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Movie $cenimaId)
+    public function destroy($cenimaId)
     {
         Movie::destroy($cenimaId);
     }

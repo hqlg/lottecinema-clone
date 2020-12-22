@@ -33,7 +33,7 @@ class GiftController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($request)
     {
         $validated = $request->validate([
             'name' => 'required|string',
@@ -67,7 +67,7 @@ class GiftController extends Controller
      * @param  \App\Models\Gift  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gift $area)
+    public function edit($area)
     {
         //
     }
@@ -79,7 +79,7 @@ class GiftController extends Controller
      * @param  \App\Models\Gift  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gift $giftId)
+    public function update(Request $request,$giftId)
     {
         $existingGift = Gift::findOrFail($giftId);
         $validated = $request->validate([
@@ -100,7 +100,7 @@ class GiftController extends Controller
      * @param  \App\Models\Gift  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gift $giftId)
+    public function destroy($giftId)
     {
         Gift::destroy($giftId);
     }   //

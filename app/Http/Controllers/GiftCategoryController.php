@@ -51,7 +51,7 @@ class GiftCategoryController extends Controller
      * @param  \App\Models\GiftCategory  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(GiftCategory $giftCategoryId)
+    public function show($giftCategoryId)
     {
         if ($giftCategoryId) {
         return response()->json(GiftCategory::find($giftCategoryId), 200);
@@ -65,7 +65,7 @@ class GiftCategoryController extends Controller
      * @param  \App\Models\GiftCategory  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(GiftCategory $area)
+    public function edit($area)
     {
         //
     }
@@ -77,7 +77,7 @@ class GiftCategoryController extends Controller
      * @param  \App\Models\GiftCategory  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, GiftCategory $giftCategoryId)
+    public function update(Request $request,$giftCategoryId)
     {
         $existingGiftCategory = GiftCategory::findOrFail($giftCategoryId);
         $validated = $request->validate([
@@ -98,7 +98,7 @@ class GiftCategoryController extends Controller
      * @param  \App\Models\GiftCategory  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(GiftCategory $giftCategoryId)
+    public function destroy($giftCategoryId)
     {
         GiftCategory::destroy($giftCategoryId);
     }

@@ -55,7 +55,7 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customerId)
+    public function show($customerId)
     {
         if ($customerId) {
         return response()->json(Customer::find($customerId), 200);
@@ -69,7 +69,7 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $area)
+    public function edit( $area)
     {
         //
     }
@@ -81,7 +81,7 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customerId)
+    public function update(Request $request, $customerId)
     {
         $existingCustomer = Customer::findOrFail($customerId);
         $validated = $request->validate([
@@ -101,7 +101,7 @@ class CustomerController extends Controller
      * @param  \App\Models\Customer  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customerId)
+    public function destroy($customerId)
     {
         Customer::destroy($customerId);
     }

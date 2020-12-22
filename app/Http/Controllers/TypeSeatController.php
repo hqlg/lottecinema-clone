@@ -52,7 +52,7 @@ class TypeSeatController extends Controller
      * @param  \App\Models\TypeSeat  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(TypeSeat $seatPositionId)
+    public function show($seatPositionId)
     {
         if ($seatPositionId) {
         return response()->json(TypeSeat::find($seatPositionId), 200);
@@ -66,7 +66,7 @@ class TypeSeatController extends Controller
      * @param  \App\Models\TypeSeat  $area
      * @return \Illuminate\Http\Response
      */
-    public function edit(TypeSeat $area)
+    public function edit($area)
     {
         //
     }
@@ -78,7 +78,7 @@ class TypeSeatController extends Controller
      * @param  \App\Models\TypeSeat  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeSeat $seatPositionId)
+    public function update(Request $request,$seatPositionId)
     {
         $existingTypeSeat = TypeSeat::findOrFail($seatPositionId);
         $validated = $request->validate([
@@ -98,7 +98,7 @@ class TypeSeatController extends Controller
      * @param  \App\Models\TypeSeat  $area
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TypeSeat $seatPositionId)
+    public function destroy($seatPositionId)
     {
         TypeSeat::destroy($seatPositionId);
     }

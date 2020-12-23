@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Cinema;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CinemaRequest;
+use App\Models\Cinema;
 
 class CinemaController extends Controller
 {
@@ -15,7 +15,7 @@ class CinemaController extends Controller
      */
     public function index()
     {
-        return response()->json(Cinema::all());
+        successfulResData(Cinema::all());
     }
 
     /**
@@ -34,17 +34,14 @@ class CinemaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CinemaRequest $request)
     {
-        $validated = $request->validate([
-           'area_id' => 'required',
-           'name' => 'required|string'
-        ]);
+        $validated = $request->validated();
         if ($validated) {
             $newCenima = Cinema::create($request->all());
-            return response()->json($newCenima);
+            successfulResStore($newCenima, "Cinema was created successfully!");
         }
-        return response()->json(['error' => 'Cinema cannot be created'],404);
+        failedResMsg("Cinema could be created successfully!");
     }
 
     /**
@@ -57,9 +54,9 @@ class CinemaController extends Controller
     {
         if ($cenimaId) {
             $existingCenima = Cinema::find($cenimaId);
-            return response()->json($existingCenima);
+            successfulResData($existingCenima);
         }
-        return response()->json(['error' => 'Cinema not found!',404]);
+        failedResMsg("Cinema not found!");
     }
 
     /*
@@ -68,7 +65,7 @@ class CinemaController extends Controller
      * @param  \App\Models\Cinema  $cenima
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cinema $cenimaId)
+    public function edit($cenimaId)
     {
         //
     }
@@ -80,19 +77,15 @@ class CinemaController extends Controller
      * @param  \App\Models\Cinema  $cenimaId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$cenimaId)
+    public function update(CinemaRequest $request, $cenimaId)
     {
-        //
-        $existingCenima = Cinema::find($cenimaId) ;
-        $validated = $request->validate([
-            'area_id' => 'required',
-            'name' => 'required|string'
-        ]);
+        $existingCenima = Cinema::find($cenimaId);
+        $validated = $request->validated();
         if ($existingCenima && $validated) {
             $existingCenima->update($request->all());
-            return response()->json($existingCenima);
+            successfulRes($existingCenima, "Cinema was updated successfully!");
         }
-        return response()->json(['error' => "Cinema cannot be updated",404]);
+        failedResMsg("Cinema could not be updated successfully!");
     }
 
     /**
@@ -101,8 +94,12 @@ class CinemaController extends Controller
      * @param  \App\Models\Cinema  $cenimaId
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cenimaId)
+    public function destroy($cinemaId)
     {
-        Cinema::destroy($cenimaId);
+        if ($cinemaId) {
+            Cinema::destroy($cinemaId);
+            successfulResMsg("Cinema has been successfully deleted");
+        }
+        failedResMsg("Cinema with ${$cinemaId} does not exist");
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Area;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AreaRequest;
+use App\Models\Area;
 
 class AreaController extends Controller
 {
@@ -15,7 +15,7 @@ class AreaController extends Controller
      */
     public function index()
     {
-        return response()->json(Area::all());
+        return successfulResData(Area::all());
     }
 
     /**
@@ -34,16 +34,14 @@ class AreaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AreaRequest $request)
     {
-        $validate = $request->validate([
-            'name' => 'required|unique:areas|string'
-        ]);
-        if ($validate) {
+        $validated = $request->validated();
+        if ($validated) {
             $newArea = Area::create($request->all());
-            return response()->json($newArea, 201);
+            successfulRes($newArea, "Area was created successfully!");
         }
-        return response()->json(['error' => "Area cannot be created!"], 404);
+        failedResMsg("Area could not be created successfully!");
     }
 
     /**
@@ -54,10 +52,11 @@ class AreaController extends Controller
      */
     public function show($areaId)
     {
-        if ($areaId) {
-        return response()->json(Area::find($areaId), 200);
+        $existingArea = Area::find($areaId);
+        if ($existingArea) {
+            successfulResData($existingArea);
         }
-        return response()->json(['error' => "Area not found!"], 404);
+        failedResMsg("Area not found!");
     }
 
     /**
@@ -78,17 +77,15 @@ class AreaController extends Controller
      * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$areaId)
+    public function update(AreaRequest $request, $areaId)
     {
         $existingArea = Area::findOrFail($areaId);
-        $validate = $request->validate([
-            'name' => 'required|string|unique:areas'
-        ]);
-        if ($existingArea && $validate) {
+        $validated = $request->validated();
+        if ($existingArea && $validated) {
             $existingArea->update($request->all());
-            return response()->json($existingArea);
+            successfulRes($existingArea, "Area was updated successfully!");
         }
-        return response()->json(['error' => 'Area cannot be updated',404]);
+        failedResMsg("Area could not be updated successfully");
     }
 
     /**
@@ -99,6 +96,6 @@ class AreaController extends Controller
      */
     public function destroy($areaId)
     {
-            Area::destroy($areaId);
+        Area::destroy($areaId);
     }
 }

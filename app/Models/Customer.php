@@ -9,11 +9,15 @@ class Customer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','email','address','phone'];
-    protected $hidden = ['password'];
+    protected $fillable = ['name', 'password', 'email', 'address', 'phone', 'avatar_url'];
 
-    public function orders()
+    public function order()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::all());
     }
 }

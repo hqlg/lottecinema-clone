@@ -13,7 +13,7 @@ class CinemaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,8 +24,8 @@ class CinemaRequest extends FormRequest
     public function rules()
     {
         return [
-            'area_id' => 'required',
-            'name' => 'required|string',
+            'area_id' => 'required|numeric',
+            'name' => 'required|string|min:2|max:50',
         ];
     }
 }

@@ -8,20 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Seat extends Model
 {
     use HasFactory;
-    protected $fillable = ['seat_position_id','type_seat_id'];
+    protected $fillable = ['room_id', 'seat_number'];
 
-    public function movieSticket()
+    public function room()
     {
-        return $this->belongsTo(Movie::class);
-    }
-
-    public function seatPosition()
-    {
-        return $this->belongsTo(SeatPosition::class);
-    }
-
-    public function typeSeat()
-    {
-        return $this->belongsTo(TypeSeat::class);
+        return $this->belongsTo(Room::class);
     }
 }

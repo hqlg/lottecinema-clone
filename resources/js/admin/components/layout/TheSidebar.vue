@@ -7,7 +7,7 @@
     <!-- Sidebar - Brand -->
     <a
       class="sidebar-brand d-flex align-items-center justify-content-center"
-      href="index.html"
+      href="/admin"
     >
       <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
@@ -20,7 +20,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="/admin">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a
       >
@@ -96,81 +96,342 @@
     <!-- Heading -->
     <div class="sidebar-heading">Addons</div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
+    <!-- Areas -->
     <li class="nav-item">
       <a
         class="nav-link collapsed"
         href="#"
         data-toggle="collapse"
-        data-target="#collapsePages"
+        data-target="#collapseAreas"
         aria-expanded="true"
-        aria-controls="collapsePages"
+        aria-controls="collapseAreas"
       >
         <i class="fas fa-fw fa-folder"></i>
-        <span>Pages</span>
+        <span>Areas</span>
       </a>
       <div
-        id="collapsePages"
+        id="collapseAreas"
         class="collapse"
         aria-labelledby="headingPages"
         data-parent="#accordionSidebar"
       >
         <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Login Screens:</h6>
-          <a class="collapse-item" href="login.html">Login</a>
-          <a class="collapse-item" href="register.html">Register</a>
-          <a class="collapse-item" href="forgot-password.html"
-            >Forgot Password</a
-          >
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/areas">List</a>
+          <a class="collapse-item" href="/admin/areas/create">Create</a>
           <div class="collapse-divider"></div>
-          <h6 class="collapse-header">Other Pages:</h6>
-          <a class="collapse-item" href="404.html">404 Page</a>
-          <a class="collapse-item" href="blank.html">Blank Page</a>
         </div>
       </div>
     </li>
 
-    <!-- Nav Item - Charts -->
+    <!-- Cinemas -->
     <li class="nav-item">
-      <a class="nav-link" href="charts.html">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>Charts</span></a
-      >
-    </li>
-
-    <!-- Nav Item - Tables -->
-    <li class="nav-item">
-      <a class="nav-link" href="tables.html">
-        <i class="fas fa-fw fa-table"></i>
-        <span>Tables</span></a
-      >
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block" />
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-      <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-
-    <!-- Sidebar Message -->
-    <div class="sidebar-card">
-      <img
-        class="sidebar-card-illustration mb-2"
-        src="img/undraw_rocket.svg"
-        alt=""
-      />
-      <p class="text-center mb-2">
-        <strong>SB Admin Pro</strong> is packed with premium features,
-        components, and more!
-      </p>
       <a
-        class="btn btn-success btn-sm"
-        href="https://startbootstrap.com/theme/sb-admin-pro"
-        >Upgrade to Pro!</a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseCinemas"
+        aria-expanded="true"
+        aria-controls="collapseCinemas"
       >
-    </div>
+        <i class="fas fa-fw fa-folder"></i>
+        <span>Cinemas</span>
+      </a>
+      <div
+        id="collapseCinemas"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/cinemas">List</a>
+          <a class="collapse-item" href="/admin/cinemas/create">Create</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Movies -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseMovies"
+        aria-expanded="true"
+        aria-controls="collapseMovies"
+      >
+        <i class="fas fa-fw fa-video"></i>
+        <span>Movies</span>
+      </a>
+      <div
+        id="collapseMovies"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/movies">List</a>
+          <a class="collapse-item" href="/admin/movies/create">Create</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Gift  -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseGift"
+        aria-expanded="true"
+        aria-controls="collapseGift"
+      >
+        <i class="fas fa-fw fa-gift"></i>
+        <span>Gift</span>
+      </a>
+      <div
+        id="collapseGift"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/gifts">List</a>
+          <a class="collapse-item" href="/admin/gifts/create">Create</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Gift Category -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseGiftCategory"
+        aria-expanded="true"
+        aria-controls="collapseGiftCategory"
+      >
+        <i class="fas fa-fw fa-gifts"></i>
+        <span>Gift Category</span>
+      </a>
+      <div
+        id="collapseGiftCategory"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/gift-categories">List</a>
+          <a class="collapse-item" href="/admin/gift-categories/create"
+            >Create</a
+          >
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Time -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseTime"
+        aria-expanded="true"
+        aria-controls="collapseTime"
+      >
+        <i class="fas fa-fw fa-clock"></i>
+        <span>Time </span>
+      </a>
+      <div
+        id="collapseTime"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/times">List</a>
+          <a class="collapse-item" href="/admin/times/create">Create</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Tag -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseTag"
+        aria-expanded="true"
+        aria-controls="collapseTag"
+      >
+        <i class="fas fa-fw fa-tag"></i>
+        <span>Tag </span>
+      </a>
+      <div
+        id="collapseTag"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/tags">List</a>
+          <a class="collapse-item" href="/admin/tags/create">Create</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Seat -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseSeat"
+        aria-expanded="true"
+        aria-controls="collapseSeat"
+      >
+        <i class="fas fa-fw fa-chair"></i>
+        <span>Seat </span>
+      </a>
+      <div
+        id="collapseSeat"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/seats">List</a>
+          <a class="collapse-item" href="/admin/seats/create">Create</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Customer -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseCustomer"
+        aria-expanded="true"
+        aria-controls="collapseCustomer"
+      >
+        <i class="fas fa-fw fa-user"></i>
+        <span>Customer</span>
+      </a>
+      <div
+        id="collapseCustomer"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/customers">List</a>
+          <a class="collapse-item" href="/admin/customers/create">Create</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Order -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseOrder"
+        aria-expanded="true"
+        aria-controls="collapseOrder"
+      >
+        <i class="fas fa-fw fa-shopping-bag"></i>
+        <span>Order</span>
+      </a>
+      <div
+        id="collapseOrder"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/orders">List</a>
+          <a class="collapse-item" href="/admin/orders/create">Create</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+
+    <!-- Order Detail -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseOrder"
+        aria-expanded="true"
+        aria-controls="collapseOrder"
+      >
+        <i class="fas fa-fw fa-folder"></i>
+        <span>Order Detail</span>
+      </a>
+      <div
+        id="collapseOrder"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/order-detail">List</a>
+          <a class="collapse-item" href="/admin/order-detail/create">Create</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
+    <!-- Room -->
+    <li class="nav-item">
+      <a
+        class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapseRoom"
+        aria-expanded="true"
+        aria-controls="collapseRoom"
+      >
+        <i class="fas fa-fw fa-folder"></i>
+        <span>Room</span>
+      </a>
+      <div
+        id="collapseRoom"
+        class="collapse"
+        aria-labelledby="headingPages"
+        data-parent="#accordionSidebar"
+      >
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Main Screens:</h6>
+          <a class="collapse-item" href="/admin/rooms">List</a>
+          <a class="collapse-item" href="/admin/rooms/create">Create</a>
+          <div class="collapse-divider"></div>
+        </div>
+      </div>
+    </li>
   </ul>
   <!-- End of Sidebar -->
 </template>

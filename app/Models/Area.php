@@ -9,10 +9,15 @@ class Area extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'slug'];
 
     public function cinemas()
     {
         return $this->hasMany(Cinema::class);
+    }
+
+    public static function getAllExceptById($id)
+    {
+        return Area::all()->where('id', '!=', $id);
     }
 }

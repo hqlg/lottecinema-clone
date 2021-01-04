@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cinema extends Model
 {
     use HasFactory;
-    protected $fillable = ['area_id','name'];
+    protected $fillable = ['id', 'area_id', 'name', 'slug'];
 
     public function area()
     {

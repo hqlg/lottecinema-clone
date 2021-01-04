@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class OrderDetail extends Model
 {
     use HasFactory;
-    protected $fillable = ['movie_sticket_id','gift_id'];
+    protected $fillable = ['movie_id', 'gift_id', 'order_id', 'quantity'];
 
-    public function movieSticket()
+    public function movie()
     {
-        return $this->belongsTo(MovieSticket::class);
+        return $this->belongsTo(Movie::class);
     }
 
     public function gift()

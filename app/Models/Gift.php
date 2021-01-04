@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gift extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','price','gift_category_id'];
+    protected $fillable = ['name', 'price', 'gift_category_id', 'product_content', 'expiration_months'];
 
     public function orderDetails()
     {

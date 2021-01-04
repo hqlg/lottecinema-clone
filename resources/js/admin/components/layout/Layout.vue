@@ -19,6 +19,17 @@ import TheHeader from "./TheHeader.vue";
 import TheSidebar from "./TheSidebar.vue";
 export default {
   components: { TheHeader, TheSidebar, TheFooter },
+  props: {
+    title: String,
+  },
+  watch: {
+    title: {
+      immediate: true,
+      handler(title) {
+        document.title = title;
+      },
+    },
+  },
 };
 </script>
 
